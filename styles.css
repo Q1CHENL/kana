@@ -33,7 +33,7 @@ body {
   height: calc(100% - 10px);
   background-color: #fff;
   border-radius: 50px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease; /* Keep this transition for the slider movement */
   z-index: 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -45,7 +45,7 @@ body {
   border-radius: 50px;
   cursor: pointer;
   font-size: 16px;
-  transition: all 0.3s ease;
+  transition: all 0s ease;
   position: relative;
   color: #555;
   z-index: 1; /* Above the slider */

@@ -1,0 +1,256 @@
+body {
+  font-family: "Meiryo", "Hiragino Kaku Gothic ProN", "MS PGothic", sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px; /* Reduced margin */
+  color: #333;
+}
+
+/* Switch Styles */
+.switch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 0 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #ff6600;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #fd7e08;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+/* End Switch Styles */
+
+.kana-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* --- Card Flip Styles --- */
+.kana-button {
+  box-sizing: border-box;
+  width: 130px;
+  height: 110px;
+  background-color: transparent; /* Button itself is a container */
+  border: none; /* Remove default button border */
+  padding: 0; /* Remove default button padding */
+  perspective: 1000px; /* For 3D flip effect */
+  cursor: default; /* Default cursor */
+}
+
+.kana-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; /* Apply border radius here */
+}
+
+/* Apply flip class */
+.kana-button.is-flipped .kana-card-inner {
+  transform: rotateY(180deg);
+}
+
+.kana-card-front,
+.kana-card-back {
+  box-sizing: border-box; /* Include padding in dimensions */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  line-height: 1.5;
+}
+
+.kana-card-front {
+  background-color: #ffffff;
+  color: black;
+}
+
+.kana-card-back {
+  background-color: #ffedd5; /* Light blue for back */
+  color: #2c3e50;
+  transform: rotateY(180deg); /* Position back face */
+  font-size: 1.8em; /* Larger font for Romaji on back */
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+}
+/* --- End Card Flip Styles --- */
+
+/* Content Styles (inside front face) */
+.kana-pair {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.romaji {
+  font-size: 1.3em; /* Increased from 1.1em */
+  font-weight: bold; /* Added bold weight */
+  color: #e74c3c;
+  margin-bottom: 5px;
+  font-family: "Arial", sans-serif;
+  transition: opacity 0.3s, font-size 0.3s, height 0.3s, margin 0.3s;
+  opacity: 1;
+  height: auto;
+  overflow: hidden;
+}
+.origins {
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* Hide Romaji via Class */
+.kana-grid.romaji-hidden .kana-card-front .romaji {
+  opacity: 0;
+  font-size: 0; /* Shrink font size */
+  height: 0; /* Collapse height */
+  margin-bottom: 0; /* Remove margin */
+  padding: 0;
+}
+
+/* Change cursor only when Romaji is hidden */
+.kana-grid.romaji-hidden .kana-button {
+  cursor: pointer;
+}
+
+/* Placeholder specifically */
+.placeholder {
+  box-sizing: border-box;
+  width: 130px;
+  height: 110px;
+  /* Make sure it doesn't interfere */
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  visibility: hidden;
+}
+/* Hide Origins via Class */
+.kana-grid.origins-hidden .kana-card-front .origins {
+  opacity: 0;
+  font-size: 0; /* Shrink font size */
+  height: 0; /* Collapse height */
+  margin-bottom: 0; /* Remove margin */
+  padding: 0;
+}
+
+/* Add transition for origins - place near existing .origins style */
+.origins {
+  font-size: 0.95em;
+  color: #555;
+  transition: opacity 0.3s, font-size 0.3s, height 0.3s, margin 0.3s; /* Add smooth transition */
+}
+
+.switches-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px; /* Space between switches */
+  margin-bottom: 30px;
+}
+
+.switch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.switch-label {
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* Hide Hiragana via Class */
+.kana-grid.hiragana-hidden .kana-pair .hiragana {
+  display: none;
+}
+
+/* Hide Katakana via Class */
+.kana-grid.katakana-hidden .kana-pair .katakana {
+  display: none;
+}
+
+/* Hide separator when only one script is shown */
+.kana-grid.hiragana-hidden .kana-pair .separator,
+.kana-grid.katakana-hidden .kana-pair .separator {
+  display: none;
+}
+
+/* Show only relevant origin */
+.kana-grid.hiragana-hidden .origins .hiragana-origin {
+  display: none;
+}
+
+.kana-grid.katakana-hidden .origins .katakana-origin {
+  display: none;
+}
+
+/* Modify origin separator */
+.kana-grid.hiragana-hidden .origins .origin-separator,
+.kana-grid.katakana-hidden .origins .origin-separator {
+  display: none;
+}

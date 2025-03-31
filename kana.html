@@ -64,11 +64,11 @@
         }
 
         input:checked + .slider {
-            background-color: #2196F3; /* Blue when ON (Show Romaji) */
+            background-color: #ff6600;
         }
 
         input:focus + .slider {
-            box-shadow: 0 0 1px #2196F3;
+            box-shadow: 0 0 1px #fd7e08;
         }
 
         input:checked + .slider:before {
@@ -156,16 +156,16 @@
         }
 
         .romaji {
-            font-size: 1.1em;
+            font-size: 1.3em; /* Increased from 1.1em */
+            font-weight: bold; /* Added bold weight */
             color: #e74c3c;
             margin-bottom: 5px;
             font-family: 'Arial', sans-serif;
-            transition: opacity 0.3s, font-size 0.3s, height 0.3s, margin 0.3s; /* Smooth transition */
+            transition: opacity 0.3s, font-size 0.3s, height 0.3s, margin 0.3s;
             opacity: 1;
-            height: auto; /* Adjust as needed */
+            height: auto;
             overflow: hidden;
         }
-
         .origins {
             font-size: 0.95em;
             color: #555;
@@ -212,30 +212,49 @@
            color: #555;
            transition: opacity 0.3s, font-size 0.3s, height 0.3s, margin 0.3s; /* Add smooth transition */
         }
+        
+        .switches-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 60px; /* Space between switches */
+            margin-bottom: 30px;
+        }
+        
+        .switch-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .switch-label {
+            text-align: center;
+            font-size: 1.1em;
+        }
     </style>
 </head>
 <body>
 
     <h1>五十音图 (含字源)</h1>
 
-    <div class="switch-container">
-        <span>隐藏罗马音</span>
-        <label class="switch">
-            <input type="checkbox" id="romaji-toggle" checked> <!-- Checked = Show Romaji initially -->
-            <span class="slider"></span>
-        </label>
-        <span>显示罗马音</span>
+    <div class="switches-container">
+        <div class="switch-item">
+            <label class="switch">
+                <input type="checkbox" id="romaji-toggle" checked>
+                <span class="slider"></span>
+            </label>
+            <span class="switch-label">罗马音</span>
+        </div>
+        
+        <div class="switch-item">
+            <label class="switch">
+                <input type="checkbox" id="origins-toggle" checked>
+                <span class="slider"></span>
+            </label>
+            <span class="switch-label">字源</span>
+        </div>
     </div>
-
-    <div class="switch-container">
-        <span>隐藏字源</span>
-        <label class="switch">
-            <input type="checkbox" id="origins-toggle" checked> <!-- Checked = Show Origins initially -->
-            <span class="slider"></span>
-        </label>
-        <span>显示字源</span>
-    </div>
-
 
     <div class="kana-grid" id="kana-grid">
         <!-- あ行 (A Row) -->
@@ -784,7 +803,7 @@
                 kanaGrid.classList.add('origins-hidden');
             }
         });
-        
+
         // --- Switch Logic ---
         romajiToggle.addEventListener('change', function() {
             // ...existing code...

@@ -279,6 +279,87 @@ body.dark-mode .origins {
   margin: 0 auto;
 }
 
+/* Add new media query for landscape/limited height mode */
+@media (max-height: 1000px) {
+    .kana-grid {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(5, auto);
+        gap: 10px;
+        max-width: 100%;
+        padding: 0 20px;
+        justify-content: center;
+        margin: 0 auto;
+        overflow-x: auto;
+        min-width: min-content;
+    }
+
+    /* Show placeholders for ya and wa columns */
+    .placeholder {
+        display: block;
+        width: 120px;
+        height: 100px;
+        visibility: hidden;
+    }
+    
+    /* Keep other existing styles */
+    .page-content {
+        padding-bottom: 40px;
+    }
+
+    .kana-button, 
+    .placeholder {
+        width: 120px;
+        height: 100px;
+    }
+
+    .kana-pair {
+        font-size: 1.4em;
+    }
+
+    .romaji {
+        font-size: 1.1em;
+    }
+
+    .origins {
+        font-size: 0.85em;
+    }
+}
+
+/* Add horizontal scrolling indicators */
+@media (max-height: 1000px) {
+    .kana-grid::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .kana-grid::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .kana-grid::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+
+    .kana-grid::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* Dark mode scrollbar adjustments */
+    body.dark-mode .kana-grid::-webkit-scrollbar-track {
+        background: #333;
+    }
+
+    body.dark-mode .kana-grid::-webkit-scrollbar-thumb {
+        background: #666;
+    }
+
+    body.dark-mode .kana-grid::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+}
+
 /* --- Card Flip Styles --- */
 .kana-button {
   box-sizing: border-box;

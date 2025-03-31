@@ -2,6 +2,7 @@ const hiraganaToggle = document.getElementById('hiragana-toggle');
 const katakanaToggle = document.getElementById('katakana-toggle');
 const romajiToggle = document.getElementById('romaji-toggle');
 const originsToggle = document.getElementById('origins-toggle');
+const darkModeToggle = document.getElementById('dark-mode-toggle');
 const kanaGrid = document.getElementById('kana-grid');
 const kanaButtons = kanaGrid.querySelectorAll('.kana-button'); // Select only buttons, not placeholders
 
@@ -77,5 +78,32 @@ originsToggle.addEventListener('change', function () {
     }
 });
 
-// Initial check for script visibility
-ensureOneScriptVisible();
+// --- Dark Mode Toggle Logic ---
+darkModeToggle.addEventListener('click', function() {
+    // Toggle the dark mode class on the body
+    const isDarkMode = document.body.classList.toggle('dark-mode');
+    
+    // Save the preference to localStorage
+    if (isDarkMode) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
+});
+
+// Check for saved dark mode preference
+function checkDarkModePreference() {
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+// Initialize settings
+function initializeSettings() {
+    ensureOneScriptVisible();
+    checkDarkModePreference();
+}
+
+// Run initialization when page loads
+initializeSettings();

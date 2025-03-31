@@ -2,12 +2,80 @@ body {
   font-family: "Meiryo", "Hiragino Kaku Gothic ProN", "MS PGothic", sans-serif;
   padding: 20px;
   background-color: #f4f4f4;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode Capsule Toggle */
+.dark-mode-capsule {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.dark-mode-input {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.dark-mode-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  width: 70px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.toggle-ball {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  bottom: 6px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode-input:checked + .dark-mode-label .toggle-ball {
+  transform: translateX(40px);
+  background-color: #333;
+}
+
+.dark-mode-input:checked + .dark-mode-label {
+  background-color: #555;
+}
+
+.sun-icon, .moon-icon {
+  font-size: 20px;
+  line-height: 1;
+  z-index: 2;
+  padding: 0 1px;
+  display: flex; /* Added to improve vertical centering */
+  align-items: center; /* Added to improve vertical centering */
+  height: 100%; /* Ensure full height for centering */
+}
+
+body.dark-mode .dark-mode-label {
+  background-color: #444;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px; /* Reduced margin */
   color: #333;
+  transition: color 0.3s;
 }
 
 /* Switch Styles */
@@ -68,6 +136,56 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 /* End Switch Styles */
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #222;
+  color: #eee;
+}
+
+body.dark-mode h1 {
+  color: #fff;
+}
+
+body.dark-mode .switch-label {
+  color: #ddd;
+}
+
+body.dark-mode .kana-card-front {
+  background-color: #333;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode .kana-card-back {
+  background-color: #444;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode .kana-pair {
+  color: #fff;
+}
+
+body.dark-mode .romaji {
+  color: #ff8c66; /* Lighter orange in dark mode */
+}
+
+body.dark-mode .origins {
+  color: #aaa;
+}
+
+/* Make sure other elements adapt to dark mode as well */
+.kana-card-front,
+.kana-card-back {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.kana-pair,
+.romaji,
+.origins {
+  transition: color 0.3s;
+}
 
 .kana-grid {
   display: flex;
@@ -253,4 +371,58 @@ input:checked + .slider:before {
 .kana-grid.hiragana-hidden .origins .origin-separator,
 .kana-grid.katakana-hidden .origins .origin-separator {
   display: none;
+}
+
+/* Dark Mode Circular Toggle */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.dark-mode-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.sun-icon, .moon-icon {
+  font-size: 22px;
+  position: absolute;
+  transition: transform 0.5s, opacity 0.3s;
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+body.dark-mode .dark-mode-button {
+  background-color: #444;
+}
+
+body.dark-mode .sun-icon {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+body.dark-mode .moon-icon {
+  opacity: 1;
+  transform: translateY(0);
 }

@@ -3,7 +3,90 @@ body {
   padding: 20px;
   background-color: #f4f4f4;
   transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding-top: 70px; /* Space for the navigation bar */
 }
+
+/* Navigation Sidebar */
+.top-nav {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  background-color: #e0e0e0;
+  border-radius: 50px;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative; /* Added for absolute positioning of slider */
+}
+
+.nav-slider {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: calc(100% - 10px);
+  background-color: #fff;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  z-index: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-button {
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  color: #555;
+  z-index: 1; /* Above the slider */
+  font-weight: normal; /* Default font weight */
+}
+
+.nav-button.active {
+  color: #333;
+  font-weight: 700; /* Make text bold when active */
+}
+
+/* Dark mode for navigation */
+body.dark-mode .nav-container {
+  background-color: #444;
+}
+
+body.dark-mode .nav-button {
+  color: #ddd;
+}
+
+body.dark-mode .nav-slider {
+  background-color: #333;
+}
+
+body.dark-mode .nav-button.active {
+  color: #fff;
+  font-weight: 700; /* Keep bold in dark mode too */
+}
+
+/* Page content */
+.page {
+  display: none;
+  margin-top: 20px; /* Add space at the top of each page */
+}
+
+.active-page {
+  display: block;
+}
+
+/* Remove slide animations */
+/* .slide-in-right, .slide-out-left, .slide-in-left, .slide-out-right and related keyframes are removed */
 
 /* Dark Mode Capsule Toggle */
 .dark-mode-capsule {
@@ -327,6 +410,7 @@ body.dark-mode .origins {
   justify-content: center;
   align-items: flex-start;
   gap: 60px; /* Space between switches */
+  margin-top: 30px; /* Add space at the top of the switches section */
   margin-bottom: 30px;
 }
 

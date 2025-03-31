@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>五十音图</title>
+    <title>五十音図</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,534 +16,561 @@
         </button>
     </div>
 
-    <h1>五十音図</h1>
-
-    <div class="switches-container">
-        <div class="switch-item">
-            <label class="switch">
-                <input type="checkbox" id="hiragana-toggle" checked>
-                <span class="slider"></span>
-            </label>
-            <span class="switch-label">平假名</span>
+    <!-- Navigation Sidebar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-slider"></div>
+            <button class="nav-button active" data-page="kana">五十音図</button>
+            <button class="nav-button" data-page="dummy1">dummy1</button>
+            <button class="nav-button" data-page="dummy2">dummy2</button>
         </div>
-        
-        <div class="switch-item">
-            <label class="switch">
-                <input type="checkbox" id="katakana-toggle" checked>
-                <span class="slider"></span>
-            </label>
-            <span class="switch-label">片假名</span>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <!-- Kana Page (Main Content) -->
+        <div id="kana-page" class="page active-page">
+            <!-- <h1>五十音図</h1> -->
+
+            <div class="switches-container">
+                <div class="switch-item">
+                    <label class="switch">
+                        <input type="checkbox" id="hiragana-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="switch-label">平假名</span>
+                </div>
+                
+                <div class="switch-item">
+                    <label class="switch">
+                        <input type="checkbox" id="katakana-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="switch-label">片假名</span>
+                </div>
+                
+                <div class="switch-item">
+                    <label class="switch">
+                        <input type="checkbox" id="romaji-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="switch-label">罗马音</span>
+                </div>
+                
+                <div class="switch-item">
+                    <label class="switch">
+                        <input type="checkbox" id="origins-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="switch-label">字源</span>
+                </div>
+            </div>
+
+            <div class="kana-grid" id="kana-grid">
+                <!-- あ行 (A Row) -->
+                <button class="kana-button" data-romaji="a">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">あ</span><span class="separator"> / </span><span class="katakana">ア</span></span>
+                            <span class="romaji">a</span>
+                            <span class="origins"><span class="hiragana-origin">安</span><span class="origin-separator"> / </span><span class="katakana-origin">阿</span></span>
+                        </div>
+                        <div class="kana-card-back">a</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="i">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">い</span><span class="separator"> / </span><span class="katakana">イ</span></span>
+                            <span class="romaji">i</span>
+                            <span class="origins"><span class="hiragana-origin">以</span><span class="origin-separator"> / </span><span class="katakana-origin">伊</span></span>
+                        </div>
+                        <div class="kana-card-back">i</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="u">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">う</span><span class="separator"> / </span><span class="katakana">ウ</span></span>
+                            <span class="romaji">u</span>
+                            <span class="origins"><span class="hiragana-origin">宇</span><span class="origin-separator"> / </span><span class="katakana-origin">宇</span></span>
+                        </div>
+                        <div class="kana-card-back">u</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="e">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">え</span><span class="separator"> / </span><span class="katakana">エ</span></span>
+                            <span class="romaji">e</span>
+                            <span class="origins"><span class="hiragana-origin">衣</span><span class="origin-separator"> / </span><span class="katakana-origin">江</span></span>
+                        </div>
+                        <div class="kana-card-back">e</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="o">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">お</span><span class="separator"> / </span><span class="katakana">オ</span></span>
+                            <span class="romaji">o</span>
+                            <span class="origins"><span class="hiragana-origin">於</span><span class="origin-separator"> / </span><span class="katakana-origin">於</span></span>
+                        </div>
+                        <div class="kana-card-back">o</div>
+                    </div>
+                </button>
+
+                <!-- か行 (Ka Row) -->
+                <button class="kana-button" data-romaji="ka">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">か</span><span class="separator"> / </span><span class="katakana">カ</span></span>
+                            <span class="romaji">ka</span>
+                            <span class="origins"><span class="hiragana-origin">加</span><span class="origin-separator"> / </span><span class="katakana-origin">加</span></span>
+                        </div>
+                        <div class="kana-card-back">ka</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ki">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">き</span><span class="separator"> / </span><span class="katakana">キ</span></span>
+                            <span class="romaji">ki</span>
+                            <span class="origins"><span class="hiragana-origin">幾</span><span class="origin-separator"> / </span><span class="katakana-origin">幾</span></span>
+                        </div>
+                        <div class="kana-card-back">ki</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ku">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">く</span><span class="separator"> / </span><span class="katakana">ク</span></span>
+                            <span class="romaji">ku</span>
+                            <span class="origins"><span class="hiragana-origin">久</span><span class="origin-separator"> / </span><span class="katakana-origin">久</span></span>
+                        </div>
+                        <div class="kana-card-back">ku</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ke">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">け</span><span class="separator"> / </span><span class="katakana">ケ</span></span>
+                            <span class="romaji">ke</span>
+                            <span class="origins"><span class="hiragana-origin">計</span><span class="origin-separator"> / </span><span class="katakana-origin">介</span></span>
+                        </div>
+                        <div class="kana-card-back">ke</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ko">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">こ</span><span class="separator"> / </span><span class="katakana">コ</span></span>
+                            <span class="romaji">ko</span>
+                            <span class="origins"><span class="hiragana-origin">己</span><span class="origin-separator"> / </span><span class="katakana-origin">己</span></span>
+                        </div>
+                        <div class="kana-card-back">ko</div>
+                    </div>
+                </button>
+
+                <!-- さ行 (Sa Row) -->
+                <button class="kana-button" data-romaji="sa">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">さ</span><span class="separator"> / </span><span class="katakana">サ</span></span>
+                            <span class="romaji">sa</span>
+                            <span class="origins"><span class="hiragana-origin">左</span><span class="origin-separator"> / </span><span class="katakana-origin">散</span></span>
+                        </div>
+                        <div class="kana-card-back">sa</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="shi">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">し</span><span class="separator"> / </span><span class="katakana">シ</span></span>
+                            <span class="romaji">shi</span>
+                            <span class="origins"><span class="hiragana-origin">之</span><span class="origin-separator"> / </span><span class="katakana-origin">之</span></span>
+                        </div>
+                        <div class="kana-card-back">shi</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="su">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">す</span><span class="separator"> / </span><span class="katakana">ス</span></span>
+                            <span class="romaji">su</span>
+                            <span class="origins"><span class="hiragana-origin">寸</span><span class="origin-separator"> / </span><span class="katakana-origin">須</span></span>
+                        </div>
+                        <div class="kana-card-back">su</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="se">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">せ</span><span class="separator"> / </span><span class="katakana">セ</span></span>
+                            <span class="romaji">se</span>
+                            <span class="origins"><span class="hiragana-origin">世</span><span class="origin-separator"> / </span><span class="katakana-origin">世</span></span>
+                        </div>
+                        <div class="kana-card-back">se</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="so">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">そ</span><span class="separator"> / </span><span class="katakana">ソ</span></span>
+                            <span class="romaji">so</span>
+                            <span class="origins"><span class="hiragana-origin">兽</span><span class="origin-separator"> / </span><span class="katakana-origin">兽</span></span>
+                        </div>
+                        <div class="kana-card-back">so</div>
+                    </div>
+                </button>
+
+                <!-- た行 (Ta Row) -->
+                <button class="kana-button" data-romaji="ta">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">た</span><span class="separator"> / </span><span class="katakana">タ</span></span>
+                            <span class="romaji">ta</span>
+                            <span class="origins"><span class="hiragana-origin">太</span><span class="origin-separator"> / </span><span class="katakana-origin">多</span></span>
+                        </div>
+                        <div class="kana-card-back">ta</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="chi">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ち</span><span class="separator"> / </span><span class="katakana">チ</span></span>
+                            <span class="romaji">chi</span>
+                            <span class="origins"><span class="hiragana-origin">知</span><span class="origin-separator"> / </span><span class="katakana-origin">千</span></span>
+                        </div>
+                        <div class="kana-card-back">chi</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="tsu">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">つ</span><span class="separator"> / </span><span class="katakana">ツ</span></span>
+                            <span class="romaji">tsu</span>
+                            <span class="origins"><span class="hiragana-origin">川</span><span class="origin-separator"> / </span><span class="katakana-origin">川</span></span>
+                        </div>
+                        <div class="kana-card-back">tsu</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="te">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">て</span><span class="separator"> / </span><span class="katakana">テ</span></span>
+                            <span class="romaji">te</span>
+                            <span class="origins"><span class="hiragana-origin">天</span><span class="origin-separator"> / </span><span class="katakana-origin">天</span></span>
+                        </div>
+                        <div class="kana-card-back">te</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="to">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">と</span><span class="separator"> / </span><span class="katakana">ト</span></span>
+                            <span class="romaji">to</span>
+                            <span class="origins"><span class="hiragana-origin">止</span><span class="origin-separator"> / </span><span class="katakana-origin">止</span></span>
+                        </div>
+                        <div class="kana-card-back">to</div>
+                    </div>
+                </button>
+
+                <!-- な行 (Na Row) -->
+                <button class="kana-button" data-romaji="na">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">な</span><span class="separator"> / </span><span class="katakana">ナ</span></span>
+                            <span class="romaji">na</span>
+                            <span class="origins"><span class="hiragana-origin">奈</span><span class="origin-separator"> / </span><span class="katakana-origin">奈</span></span>
+                        </div>
+                        <div class="kana-card-back">na</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ni">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">に</span><span class="separator"> / </span><span class="katakana">ニ</span></span>
+                            <span class="romaji">ni</span>
+                            <span class="origins"><span class="hiragana-origin">仁</span><span class="origin-separator"> / </span><span class="katakana-origin">仁</span></span>
+                        </div>
+                        <div class="kana-card-back">ni</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="nu">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ぬ</span><span class="separator"> / </span><span class="katakana">ヌ</span></span>
+                            <span class="romaji">nu</span>
+                            <span class="origins"><span class="hiragana-origin">奴</span><span class="origin-separator"> / </span><span class="katakana-origin">奴</span></span>
+                        </div>
+                        <div class="kana-card-back">nu</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ne">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ね</span><span class="separator"> / </span><span class="katakana">ネ</span></span>
+                            <span class="romaji">ne</span>
+                            <span class="origins"><span class="hiragana-origin">祢</span><span class="origin-separator"> / </span><span class="katakana-origin">祢</span></span>
+                        </div>
+                        <div class="kana-card-back">ne</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="no">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">の</span><span class="separator"> / </span><span class="katakana">ノ</span></span>
+                            <span class="romaji">no</span>
+                            <span class="origins"><span class="hiragana-origin">乃</span><span class="origin-separator"> / </span><span class="katakana-origin">乃</span></span>
+                        </div>
+                        <div class="kana-card-back">no</div>
+                    </div>
+                </button>
+
+                <!-- は行 (Ha Row) -->
+                <button class="kana-button" data-romaji="ha">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">は</span><span class="separator"> / </span><span class="katakana">ハ</span></span>
+                            <span class="romaji">ha</span>
+                            <span class="origins"><span class="hiragana-origin">波</span><span class="origin-separator"> / </span><span class="katakana-origin">八</span></span>
+                        </div>
+                        <div class="kana-card-back">ha</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="hi">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ひ</span><span class="separator"> / </span><span class="katakana">ヒ</span></span>
+                            <span class="romaji">hi</span>
+                            <span class="origins"><span class="hiragana-origin">比</span><span class="origin-separator"> / </span><span class="katakana-origin">比</span></span>
+                        </div>
+                        <div class="kana-card-back">hi</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="fu">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ふ</span><span class="separator"> / </span><span class="katakana">フ</span></span>
+                            <span class="romaji">fu</span>
+                            <span class="origins"><span class="hiragana-origin">不</span><span class="origin-separator"> / </span><span class="katakana-origin">不</span></span>
+                        </div>
+                        <div class="kana-card-back">fu</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="he">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">へ</span><span class="separator"> / </span><span class="katakana">ヘ</span></span>
+                            <span class="romaji">he</span>
+                            <span class="origins"><span class="hiragana-origin">部</span><span class="origin-separator"> / </span><span class="katakana-origin">部</span></span>
+                        </div>
+                        <div class="kana-card-back">he</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ho">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ほ</span><span class="separator"> / </span><span class="katakana">ホ</span></span>
+                            <span class="romaji">ho</span>
+                            <span class="origins"><span class="hiragana-origin">保</span><span class="origin-separator"> / </span><span class="katakana-origin">保</span></span>
+                        </div>
+                        <div class="kana-card-back">ho</div>
+                    </div>
+                </button>
+
+                <!-- ま行 (Ma Row) -->
+                <button class="kana-button" data-romaji="ma">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ま</span><span class="separator"> / </span><span class="katakana">マ</span></span>
+                            <span class="romaji">ma</span>
+                            <span class="origins"><span class="hiragana-origin">末</span><span class="origin-separator"> / </span><span class="katakana-origin">末</span></span>
+                        </div>
+                        <div class="kana-card-back">ma</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="mi">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">み</span><span class="separator"> / </span><span class="katakana">ミ</span></span>
+                            <span class="romaji">mi</span>
+                            <span class="origins"><span class="hiragana-origin">美</span><span class="origin-separator"> / </span><span class="katakana-origin">三</span></span>
+                        </div>
+                        <div class="kana-card-back">mi</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="mu">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">む</span><span class="separator"> / </span><span class="katakana">ム</span></span>
+                            <span class="romaji">mu</span>
+                            <span class="origins"><span class="hiragana-origin">武</span><span class="origin-separator"> / </span><span class="katakana-origin">牟</span></span>
+                        </div>
+                        <div class="kana-card-back">mu</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="me">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">め</span><span class="separator"> / </span><span class="katakana">メ</span></span>
+                            <span class="romaji">me</span>
+                            <span class="origins"><span class="hiragana-origin">女</span><span class="origin-separator"> / </span><span class="katakana-origin">女</span></span>
+                        </div>
+                        <div class="kana-card-back">me</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="mo">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">も</span><span class="separator"> / </span><span class="katakana">モ</span></span>
+                            <span class="romaji">mo</span>
+                            <span class="origins"><span class="hiragana-origin">毛</span><span class="origin-separator"> / </span><span class="katakana-origin">毛</span></span>
+                        </div>
+                        <div class="kana-card-back">mo</div>
+                    </div>
+                </button>
+
+                <!-- や行 (Ya Row) -->
+                <button class="kana-button" data-romaji="ya">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">や</span><span class="separator"> / </span><span class="katakana">ヤ</span></span>
+                            <span class="romaji">ya</span>
+                            <span class="origins"><span class="hiragana-origin">也</span><span class="origin-separator"> / </span><span class="katakana-origin">也</span></span>
+                        </div>
+                        <div class="kana-card-back">ya</div>
+                    </div>
+                </button>
+                <div class="placeholder"></div>
+                <button class="kana-button" data-romaji="yu">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ゆ</span><span class="separator"> / </span><span class="katakana">ユ</span></span>
+                            <span class="romaji">yu</span>
+                            <span class="origins"><span class="hiragana-origin">由</span><span class="origin-separator"> / </span><span class="katakana-origin">由</span></span>
+                        </div>
+                        <div class="kana-card-back">yu</div>
+                    </div>
+                </button>
+                <div class="placeholder"></div>
+                <button class="kana-button" data-romaji="yo">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">よ</span><span class="separator"> / </span><span class="katakana">ヨ</span></span>
+                            <span class="romaji">yo</span>
+                            <span class="origins"><span class="hiragana-origin">与</span><span class="origin-separator"> / </span><span class="katakana-origin">与</span></span>
+                        </div>
+                        <div class="kana-card-back">yo</div>
+                    </div>
+                </button>
+
+                <!-- ら行 (Ra Row) -->
+                <button class="kana-button" data-romaji="ra">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ら</span><span class="separator"> / </span><span class="katakana">ラ</span></span>
+                            <span class="romaji">ra</span>
+                            <span class="origins"><span class="hiragana-origin">良</span><span class="origin-separator"> / </span><span class="katakana-origin">良</span></span>
+                        </div>
+                        <div class="kana-card-back">ra</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ri">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">り</span><span class="separator"> / </span><span class="katakana">リ</span></span>
+                            <span class="romaji">ri</span>
+                            <span class="origins"><span class="hiragana-origin">利</span><span class="origin-separator"> / </span><span class="katakana-origin">利</span></span>
+                        </div>
+                        <div class="kana-card-back">ri</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ru">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">る</span><span class="separator"> / </span><span class="katakana">ル</span></span>
+                            <span class="romaji">ru</span>
+                            <span class="origins"><span class="hiragana-origin">留</span><span class="origin-separator"> / </span><span class="katakana-origin">流</span></span>
+                        </div>
+                        <div class="kana-card-back">ru</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="re">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">れ</span><span class="separator"> / </span><span class="katakana">レ</span></span>
+                            <span class="romaji">re</span>
+                            <span class="origins"><span class="hiragana-origin">礼</span><span class="origin-separator"> / </span><span class="katakana-origin">礼</span></span>
+                        </div>
+                        <div class="kana-card-back">re</div>
+                    </div>
+                </button>
+                <button class="kana-button" data-romaji="ro">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ろ</span><span class="separator"> / </span><span class="katakana">ロ</span></span>
+                            <span class="romaji">ro</span>
+                            <span class="origins"><span class="hiragana-origin">呂</span><span class="origin-separator"> / </span><span class="katakana-origin">呂</span></span>
+                        </div>
+                        <div class="kana-card-back">ro</div>
+                    </div>
+                </button>
+
+                <!-- わ行 (Wa Row) -->
+                <button class="kana-button" data-romaji="wa">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">わ</span><span class="separator"> / </span><span class="katakana">ワ</span></span>
+                            <span class="romaji">wa</span>
+                            <span class="origins"><span class="hiragana-origin">和</span><span class="origin-separator"> / </span><span class="katakana-origin">和</span></span>
+                        </div>
+                        <div class="kana-card-back">wa</div>
+                    </div>
+                </button>
+                <div class="placeholder"></div>
+                <div class="placeholder"></div>
+                <div class="placeholder"></div>
+                <button class="kana-button" data-romaji="wo (o)">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">を</span><span class="separator"> / </span><span class="katakana">ヲ</span></span>
+                            <span class="romaji">wo (o)</span>
+                            <span class="origins"><span class="hiragana-origin">遠</span><span class="origin-separator"> / </span><span class="katakana-origin">乎</span></span>
+                        </div>
+                        <div class="kana-card-back">wo (o)</div>
+                    </div>
+                </button>
+
+                <!-- ん (N) -->
+                <button class="kana-button" data-romaji="n">
+                    <div class="kana-card-inner">
+                        <div class="kana-card-front">
+                            <span class="kana-pair"><span class="hiragana">ん</span><span class="separator"> / </span><span class="katakana">ン</span></span>
+                            <span class="romaji">n</span>
+                            <span class="origins"><span class="hiragana-origin">无</span><span class="origin-separator"> / </span><span class="katakana-origin">尔</span></span>
+                        </div>
+                        <div class="kana-card-back">n</div>
+                    </div>
+                </button>
+                <div class="placeholder"></div>
+                <div class="placeholder"></div>
+                <div class="placeholder"></div>
+                <div class="placeholder"></div>
+
+            </div>
         </div>
-        
-        <div class="switch-item">
-            <label class="switch">
-                <input type="checkbox" id="romaji-toggle" checked>
-                <span class="slider"></span>
-            </label>
-            <span class="switch-label">罗马音</span>
+
+        <!-- Dummy Pages -->
+        <div id="dummy1-page" class="page">
+            <h1>Dummy Page 1</h1>
+            <p>This is a placeholder for future content.</p>
         </div>
-        
-        <div class="switch-item">
-            <label class="switch">
-                <input type="checkbox" id="origins-toggle" checked>
-                <span class="slider"></span>
-            </label>
-            <span class="switch-label">字源</span>
+
+        <div id="dummy2-page" class="page">
+            <h1>Dummy Page 2</h1>
+            <p>This is a placeholder for future content.</p>
         </div>
-    </div>
-
-    <div class="kana-grid" id="kana-grid">
-        <!-- あ行 (A Row) -->
-        <button class="kana-button" data-romaji="a">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">あ</span><span class="separator"> / </span><span class="katakana">ア</span></span>
-                    <span class="romaji">a</span>
-                    <span class="origins"><span class="hiragana-origin">安</span><span class="origin-separator"> / </span><span class="katakana-origin">阿</span></span>
-                </div>
-                <div class="kana-card-back">a</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="i">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">い</span><span class="separator"> / </span><span class="katakana">イ</span></span>
-                    <span class="romaji">i</span>
-                    <span class="origins"><span class="hiragana-origin">以</span><span class="origin-separator"> / </span><span class="katakana-origin">伊</span></span>
-                </div>
-                <div class="kana-card-back">i</div>
-            </div>
-        </button>
-         <button class="kana-button" data-romaji="u">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">う</span><span class="separator"> / </span><span class="katakana">ウ</span></span>
-                    <span class="romaji">u</span>
-                    <span class="origins"><span class="hiragana-origin">宇</span><span class="origin-separator"> / </span><span class="katakana-origin">宇</span></span>
-                </div>
-                <div class="kana-card-back">u</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="e">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">え</span><span class="separator"> / </span><span class="katakana">エ</span></span>
-                    <span class="romaji">e</span>
-                    <span class="origins"><span class="hiragana-origin">衣</span><span class="origin-separator"> / </span><span class="katakana-origin">江</span></span>
-                </div>
-                <div class="kana-card-back">e</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="o">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">お</span><span class="separator"> / </span><span class="katakana">オ</span></span>
-                    <span class="romaji">o</span>
-                    <span class="origins"><span class="hiragana-origin">於</span><span class="origin-separator"> / </span><span class="katakana-origin">於</span></span>
-                </div>
-                <div class="kana-card-back">o</div>
-            </div>
-        </button>
-
-        <!-- か行 (Ka Row) -->
-        <button class="kana-button" data-romaji="ka">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">か</span><span class="separator"> / </span><span class="katakana">カ</span></span>
-                    <span class="romaji">ka</span>
-                    <span class="origins"><span class="hiragana-origin">加</span><span class="origin-separator"> / </span><span class="katakana-origin">加</span></span>
-                </div>
-                <div class="kana-card-back">ka</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ki">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">き</span><span class="separator"> / </span><span class="katakana">キ</span></span>
-                    <span class="romaji">ki</span>
-                    <span class="origins"><span class="hiragana-origin">幾</span><span class="origin-separator"> / </span><span class="katakana-origin">幾</span></span>
-                </div>
-                <div class="kana-card-back">ki</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ku">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">く</span><span class="separator"> / </span><span class="katakana">ク</span></span>
-                    <span class="romaji">ku</span>
-                    <span class="origins"><span class="hiragana-origin">久</span><span class="origin-separator"> / </span><span class="katakana-origin">久</span></span>
-                </div>
-                <div class="kana-card-back">ku</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ke">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">け</span><span class="separator"> / </span><span class="katakana">ケ</span></span>
-                    <span class="romaji">ke</span>
-                    <span class="origins"><span class="hiragana-origin">計</span><span class="origin-separator"> / </span><span class="katakana-origin">介</span></span>
-                </div>
-                <div class="kana-card-back">ke</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ko">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">こ</span><span class="separator"> / </span><span class="katakana">コ</span></span>
-                    <span class="romaji">ko</span>
-                    <span class="origins"><span class="hiragana-origin">己</span><span class="origin-separator"> / </span><span class="katakana-origin">己</span></span>
-                </div>
-                <div class="kana-card-back">ko</div>
-            </div>
-        </button>
-
-        <!-- さ行 (Sa Row) -->
-        <button class="kana-button" data-romaji="sa">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">さ</span><span class="separator"> / </span><span class="katakana">サ</span></span>
-                    <span class="romaji">sa</span>
-                    <span class="origins"><span class="hiragana-origin">左</span><span class="origin-separator"> / </span><span class="katakana-origin">散</span></span>
-                </div>
-                <div class="kana-card-back">sa</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="shi">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">し</span><span class="separator"> / </span><span class="katakana">シ</span></span>
-                    <span class="romaji">shi</span>
-                    <span class="origins"><span class="hiragana-origin">之</span><span class="origin-separator"> / </span><span class="katakana-origin">之</span></span>
-                </div>
-                <div class="kana-card-back">shi</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="su">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">す</span><span class="separator"> / </span><span class="katakana">ス</span></span>
-                    <span class="romaji">su</span>
-                    <span class="origins"><span class="hiragana-origin">寸</span><span class="origin-separator"> / </span><span class="katakana-origin">須</span></span>
-                </div>
-                <div class="kana-card-back">su</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="se">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">せ</span><span class="separator"> / </span><span class="katakana">セ</span></span>
-                    <span class="romaji">se</span>
-                    <span class="origins"><span class="hiragana-origin">世</span><span class="origin-separator"> / </span><span class="katakana-origin">世</span></span>
-                </div>
-                <div class="kana-card-back">se</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="so">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">そ</span><span class="separator"> / </span><span class="katakana">ソ</span></span>
-                    <span class="romaji">so</span>
-                    <span class="origins"><span class="hiragana-origin">兽</span><span class="origin-separator"> / </span><span class="katakana-origin">兽</span></span>
-                </div>
-                <div class="kana-card-back">so</div>
-            </div>
-        </button>
-
-        <!-- た行 (Ta Row) -->
-        <button class="kana-button" data-romaji="ta">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">た</span><span class="separator"> / </span><span class="katakana">タ</span></span>
-                    <span class="romaji">ta</span>
-                    <span class="origins"><span class="hiragana-origin">太</span><span class="origin-separator"> / </span><span class="katakana-origin">多</span></span>
-                </div>
-                <div class="kana-card-back">ta</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="chi">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ち</span><span class="separator"> / </span><span class="katakana">チ</span></span>
-                    <span class="romaji">chi</span>
-                    <span class="origins"><span class="hiragana-origin">知</span><span class="origin-separator"> / </span><span class="katakana-origin">千</span></span>
-                </div>
-                <div class="kana-card-back">chi</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="tsu">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">つ</span><span class="separator"> / </span><span class="katakana">ツ</span></span>
-                    <span class="romaji">tsu</span>
-                    <span class="origins"><span class="hiragana-origin">川</span><span class="origin-separator"> / </span><span class="katakana-origin">川</span></span>
-                </div>
-                <div class="kana-card-back">tsu</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="te">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">て</span><span class="separator"> / </span><span class="katakana">テ</span></span>
-                    <span class="romaji">te</span>
-                    <span class="origins"><span class="hiragana-origin">天</span><span class="origin-separator"> / </span><span class="katakana-origin">天</span></span>
-                </div>
-                <div class="kana-card-back">te</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="to">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">と</span><span class="separator"> / </span><span class="katakana">ト</span></span>
-                    <span class="romaji">to</span>
-                    <span class="origins"><span class="hiragana-origin">止</span><span class="origin-separator"> / </span><span class="katakana-origin">止</span></span>
-                </div>
-                <div class="kana-card-back">to</div>
-            </div>
-        </button>
-
-        <!-- な行 (Na Row) -->
-        <button class="kana-button" data-romaji="na">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">な</span><span class="separator"> / </span><span class="katakana">ナ</span></span>
-                    <span class="romaji">na</span>
-                    <span class="origins"><span class="hiragana-origin">奈</span><span class="origin-separator"> / </span><span class="katakana-origin">奈</span></span>
-                </div>
-                <div class="kana-card-back">na</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ni">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">に</span><span class="separator"> / </span><span class="katakana">ニ</span></span>
-                    <span class="romaji">ni</span>
-                    <span class="origins"><span class="hiragana-origin">仁</span><span class="origin-separator"> / </span><span class="katakana-origin">仁</span></span>
-                </div>
-                <div class="kana-card-back">ni</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="nu">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ぬ</span><span class="separator"> / </span><span class="katakana">ヌ</span></span>
-                    <span class="romaji">nu</span>
-                    <span class="origins"><span class="hiragana-origin">奴</span><span class="origin-separator"> / </span><span class="katakana-origin">奴</span></span>
-                </div>
-                <div class="kana-card-back">nu</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ne">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ね</span><span class="separator"> / </span><span class="katakana">ネ</span></span>
-                    <span class="romaji">ne</span>
-                    <span class="origins"><span class="hiragana-origin">祢</span><span class="origin-separator"> / </span><span class="katakana-origin">祢</span></span>
-                </div>
-                <div class="kana-card-back">ne</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="no">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">の</span><span class="separator"> / </span><span class="katakana">ノ</span></span>
-                    <span class="romaji">no</span>
-                    <span class="origins"><span class="hiragana-origin">乃</span><span class="origin-separator"> / </span><span class="katakana-origin">乃</span></span>
-                </div>
-                <div class="kana-card-back">no</div>
-            </div>
-        </button>
-
-        <!-- は行 (Ha Row) -->
-        <button class="kana-button" data-romaji="ha">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">は</span><span class="separator"> / </span><span class="katakana">ハ</span></span>
-                    <span class="romaji">ha</span>
-                    <span class="origins"><span class="hiragana-origin">波</span><span class="origin-separator"> / </span><span class="katakana-origin">八</span></span>
-                </div>
-                <div class="kana-card-back">ha</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="hi">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ひ</span><span class="separator"> / </span><span class="katakana">ヒ</span></span>
-                    <span class="romaji">hi</span>
-                    <span class="origins"><span class="hiragana-origin">比</span><span class="origin-separator"> / </span><span class="katakana-origin">比</span></span>
-                </div>
-                <div class="kana-card-back">hi</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="fu">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ふ</span><span class="separator"> / </span><span class="katakana">フ</span></span>
-                    <span class="romaji">fu</span>
-                    <span class="origins"><span class="hiragana-origin">不</span><span class="origin-separator"> / </span><span class="katakana-origin">不</span></span>
-                </div>
-                <div class="kana-card-back">fu</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="he">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">へ</span><span class="separator"> / </span><span class="katakana">ヘ</span></span>
-                    <span class="romaji">he</span>
-                    <span class="origins"><span class="hiragana-origin">部</span><span class="origin-separator"> / </span><span class="katakana-origin">部</span></span>
-                </div>
-                <div class="kana-card-back">he</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ho">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ほ</span><span class="separator"> / </span><span class="katakana">ホ</span></span>
-                    <span class="romaji">ho</span>
-                    <span class="origins"><span class="hiragana-origin">保</span><span class="origin-separator"> / </span><span class="katakana-origin">保</span></span>
-                </div>
-                <div class="kana-card-back">ho</div>
-            </div>
-        </button>
-
-        <!-- ま行 (Ma Row) -->
-        <button class="kana-button" data-romaji="ma">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ま</span><span class="separator"> / </span><span class="katakana">マ</span></span>
-                    <span class="romaji">ma</span>
-                    <span class="origins"><span class="hiragana-origin">末</span><span class="origin-separator"> / </span><span class="katakana-origin">末</span></span>
-                </div>
-                <div class="kana-card-back">ma</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="mi">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">み</span><span class="separator"> / </span><span class="katakana">ミ</span></span>
-                    <span class="romaji">mi</span>
-                    <span class="origins"><span class="hiragana-origin">美</span><span class="origin-separator"> / </span><span class="katakana-origin">三</span></span>
-                </div>
-                <div class="kana-card-back">mi</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="mu">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">む</span><span class="separator"> / </span><span class="katakana">ム</span></span>
-                    <span class="romaji">mu</span>
-                    <span class="origins"><span class="hiragana-origin">武</span><span class="origin-separator"> / </span><span class="katakana-origin">牟</span></span>
-                </div>
-                <div class="kana-card-back">mu</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="me">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">め</span><span class="separator"> / </span><span class="katakana">メ</span></span>
-                    <span class="romaji">me</span>
-                    <span class="origins"><span class="hiragana-origin">女</span><span class="origin-separator"> / </span><span class="katakana-origin">女</span></span>
-                </div>
-                <div class="kana-card-back">me</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="mo">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">も</span><span class="separator"> / </span><span class="katakana">モ</span></span>
-                    <span class="romaji">mo</span>
-                    <span class="origins"><span class="hiragana-origin">毛</span><span class="origin-separator"> / </span><span class="katakana-origin">毛</span></span>
-                </div>
-                <div class="kana-card-back">mo</div>
-            </div>
-        </button>
-
-        <!-- や行 (Ya Row) -->
-         <button class="kana-button" data-romaji="ya">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">や</span><span class="separator"> / </span><span class="katakana">ヤ</span></span>
-                    <span class="romaji">ya</span>
-                    <span class="origins"><span class="hiragana-origin">也</span><span class="origin-separator"> / </span><span class="katakana-origin">也</span></span>
-                </div>
-                <div class="kana-card-back">ya</div>
-            </div>
-        </button>
-        <div class="placeholder"></div>
-        <button class="kana-button" data-romaji="yu">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ゆ</span><span class="separator"> / </span><span class="katakana">ユ</span></span>
-                    <span class="romaji">yu</span>
-                    <span class="origins"><span class="hiragana-origin">由</span><span class="origin-separator"> / </span><span class="katakana-origin">由</span></span>
-                </div>
-                <div class="kana-card-back">yu</div>
-            </div>
-        </button>
-        <div class="placeholder"></div>
-        <button class="kana-button" data-romaji="yo">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">よ</span><span class="separator"> / </span><span class="katakana">ヨ</span></span>
-                    <span class="romaji">yo</span>
-                    <span class="origins"><span class="hiragana-origin">与</span><span class="origin-separator"> / </span><span class="katakana-origin">与</span></span>
-                </div>
-                <div class="kana-card-back">yo</div>
-            </div>
-        </button>
-
-        <!-- ら行 (Ra Row) -->
-        <button class="kana-button" data-romaji="ra">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ら</span><span class="separator"> / </span><span class="katakana">ラ</span></span>
-                    <span class="romaji">ra</span>
-                    <span class="origins"><span class="hiragana-origin">良</span><span class="origin-separator"> / </span><span class="katakana-origin">良</span></span>
-                </div>
-                <div class="kana-card-back">ra</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ri">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">り</span><span class="separator"> / </span><span class="katakana">リ</span></span>
-                    <span class="romaji">ri</span>
-                    <span class="origins"><span class="hiragana-origin">利</span><span class="origin-separator"> / </span><span class="katakana-origin">利</span></span>
-                </div>
-                <div class="kana-card-back">ri</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ru">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">る</span><span class="separator"> / </span><span class="katakana">ル</span></span>
-                    <span class="romaji">ru</span>
-                    <span class="origins"><span class="hiragana-origin">留</span><span class="origin-separator"> / </span><span class="katakana-origin">流</span></span>
-                </div>
-                <div class="kana-card-back">ru</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="re">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">れ</span><span class="separator"> / </span><span class="katakana">レ</span></span>
-                    <span class="romaji">re</span>
-                    <span class="origins"><span class="hiragana-origin">礼</span><span class="origin-separator"> / </span><span class="katakana-origin">礼</span></span>
-                </div>
-                <div class="kana-card-back">re</div>
-            </div>
-        </button>
-        <button class="kana-button" data-romaji="ro">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ろ</span><span class="separator"> / </span><span class="katakana">ロ</span></span>
-                    <span class="romaji">ro</span>
-                    <span class="origins"><span class="hiragana-origin">呂</span><span class="origin-separator"> / </span><span class="katakana-origin">呂</span></span>
-                </div>
-                <div class="kana-card-back">ro</div>
-            </div>
-        </button>
-
-        <!-- わ行 (Wa Row) -->
-        <button class="kana-button" data-romaji="wa">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">わ</span><span class="separator"> / </span><span class="katakana">ワ</span></span>
-                    <span class="romaji">wa</span>
-                    <span class="origins"><span class="hiragana-origin">和</span><span class="origin-separator"> / </span><span class="katakana-origin">和</span></span>
-                </div>
-                <div class="kana-card-back">wa</div>
-            </div>
-        </button>
-        <div class="placeholder"></div>
-        <div class="placeholder"></div>
-        <div class="placeholder"></div>
-         <button class="kana-button" data-romaji="wo (o)">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">を</span><span class="separator"> / </span><span class="katakana">ヲ</span></span>
-                    <span class="romaji">wo (o)</span>
-                    <span class="origins"><span class="hiragana-origin">遠</span><span class="origin-separator"> / </span><span class="katakana-origin">乎</span></span>
-                </div>
-                <div class="kana-card-back">wo (o)</div>
-            </div>
-        </button>
-
-        <!-- ん (N) -->
-         <button class="kana-button" data-romaji="n">
-            <div class="kana-card-inner">
-                <div class="kana-card-front">
-                    <span class="kana-pair"><span class="hiragana">ん</span><span class="separator"> / </span><span class="katakana">ン</span></span>
-                    <span class="romaji">n</span>
-                    <span class="origins"><span class="hiragana-origin">无</span><span class="origin-separator"> / </span><span class="katakana-origin">尔</span></span>
-                </div>
-                <div class="kana-card-back">n</div>
-            </div>
-        </button>
-        <div class="placeholder"></div>
-        <div class="placeholder"></div>
-        <div class="placeholder"></div>
-        <div class="placeholder"></div>
-
     </div>
 
     <script src="script.js" defer nonce="randomNonceValue"></script>

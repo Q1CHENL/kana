@@ -4,7 +4,50 @@ const romajiToggle = document.getElementById('romaji-toggle');
 const originsToggle = document.getElementById('origins-toggle');
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 const kanaGrid = document.getElementById('kana-grid');
-const kanaButtons = kanaGrid.querySelectorAll('.kana-button'); // Select only buttons, not placeholders
+const kanaButtons = kanaGrid.querySelectorAll('.kana-button');
+const navButtons = document.querySelectorAll('.nav-button');
+const navSlider = document.querySelector('.nav-slider');
+
+// Initialize the slider position on load
+function initializeNavSlider() {
+    const activeButton = document.querySelector('.nav-button.active');
+    if (activeButton && navSlider) {
+        positionSlider(activeButton);
+    }
+}
+
+// Function to position the slider
+function positionSlider(button) {
+    navSlider.style.width = `${button.offsetWidth}px`;
+    navSlider.style.left = `${button.offsetLeft}px`;
+}
+
+// Navigation functionality without slide effects
+navButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const targetPageId = this.getAttribute('data-page') + '-page';
+        const targetPage = document.getElementById(targetPageId);
+        
+        // Don't do anything if the clicked page is already active
+        if (targetPage.classList.contains('active-page')) return;
+        
+        // Get currently active button and page
+        const currentActiveButton = document.querySelector('.nav-button.active');
+        const currentPageId = currentActiveButton.getAttribute('data-page') + '-page';
+        const currentPage = document.getElementById(currentPageId);
+        
+        // Update active button status
+        currentActiveButton.classList.remove('active');
+        this.classList.add('active');
+        
+        // Move the slider to the active button
+        positionSlider(this);
+        
+        // Simple display toggle without animations
+        currentPage.classList.remove('active-page');
+        targetPage.classList.add('active-page');
+    });
+});
 
 // Function to reset all cards to front face
 function resetAllCards() {
@@ -103,7 +146,16 @@ function checkDarkModePreference() {
 function initializeSettings() {
     ensureOneScriptVisible();
     checkDarkModePreference();
+    initializeNavSlider(); // Initialize nav slider position
 }
 
 // Run initialization when page loads
 initializeSettings();
+
+// Also update slider position if window is resized
+window.addEventListener('resize', () => {
+    const activeButton = document.querySelector('.nav-button.active');
+    if (activeButton) {
+        positionSlider(activeButton);
+    }
+});

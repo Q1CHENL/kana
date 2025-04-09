@@ -1,3 +1,7 @@
+html {
+  min-width: 600px; /* Apply min-width to html */
+}
+
 body {
   font-family: "Meiryo", "Hiragino Kaku Gothic ProN", "MS PGothic", sans-serif;
   padding: 20px;
@@ -5,6 +9,7 @@ body {
   transition: background-color 0.3s, color 0.3s;
   margin: 0;
   padding-top: 70px; /* Space for the navigation bar */
+  min-width: 600px; /* Increased minimum width */
 }
 
 /* Navigation Sidebar */
@@ -50,6 +55,7 @@ body {
   color: #555;
   z-index: 1; /* Above the slider */
   font-weight: normal; /* Default font weight */
+  white-space: nowrap; /* Prevent button text from wrapping */
 }
 
 .nav-button.active {

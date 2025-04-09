@@ -4,9 +4,12 @@ const path = require('path')
 function createWindow() {
   // Create the browser window
   const mainWindow = new BrowserWindow({
-    width: 1024,
-    height: 768,
+    width: 800,
+    height: 600,
+    minWidth: 600, 
+    minHeight: 400, // Added minimum height for better UX
     webPreferences: {
+      // preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true
     },
@@ -17,6 +20,9 @@ function createWindow() {
     // Show window controls but hide the title bar
     titleBarOverlay: false
   })
+
+  // Explicitly set minimum size again - sometimes helps when the constructor options don't take effect
+  mainWindow.setMinimumSize(600, 400)
 
   // Load your HTML file
   mainWindow.loadFile(path.join(__dirname, '../kana.html'))

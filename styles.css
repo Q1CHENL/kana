@@ -279,46 +279,38 @@ body.dark-mode .origins {
   margin: 0 auto;
 }
 
-/* Add new media query for landscape/limited height mode */
-@media (max-height: 1000px) {
+/* Combine landscape layout and scrollbar styles under orientation query */
+@media (orientation: landscape) {
     .kana-grid {
         display: grid;
         grid-auto-flow: column;
         grid-template-rows: repeat(5, auto);
         gap: 10px;
-        max-width: 100%;
-        padding: 0 20px;
-        justify-content: center; /* Center grid items horizontally */
-        margin: 0 auto; /* Keep the grid container centered if possible */
-        overflow-x: auto;
-        min-width: min-content;
-        /* Ensure container respects padding */
-        box-sizing: border-box; 
-        /* Add some padding at the bottom if needed */
-        padding-bottom: 15px; 
+        max-width: 100%; /* Allow full width */
+        padding: 0 20px; /* Horizontal padding */
+        justify-content: flex-start; /* Align grid items to the start */
+        margin: 0 auto;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        min-width: min-content; /* Ensure grid respects content size */
+        box-sizing: border-box;
+        padding-bottom: 15px; /* Space for scrollbar */
     }
 
-    /* Show placeholders for ya and wa columns */
+    /* Show placeholders only in landscape */
     .placeholder {
         display: block;
         visibility: hidden;
         aspect-ratio: 1.2 / 1;
-        width: clamp(80px, min(calc(15vw - 10px), calc(15vh - 10px)), 120px);
+        /* Make width consistent with kana-button */
+        width: clamp(100px, min(calc(18vw - 20px), calc(18vh - 20px)), 130px);
     }
-    
-    /* Keep other existing styles */
+
+    /* Adjust page content padding if needed */
     .page-content {
-        padding-bottom: 40px;
+        padding-bottom: 40px; /* Example adjustment */
     }
 
-    /* Font sizes removed from here - will be handled by container queries */
-    /* .kana-pair { ... } */
-    /* .romaji { ... } */
-    /* .origins { ... } */
-}
-
-/* Add horizontal scrolling indicators */
-@media (max-height: 1000px) {
+    /* --- Horizontal scrollbar styles --- */
     .kana-grid::-webkit-scrollbar {
         height: 8px;
     }

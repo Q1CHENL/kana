@@ -288,18 +288,22 @@ body.dark-mode .origins {
         gap: 10px;
         max-width: 100%;
         padding: 0 20px;
-        justify-content: center;
-        margin: 0 auto;
+        justify-content: center; /* Center grid items horizontally */
+        margin: 0 auto; /* Keep the grid container centered if possible */
         overflow-x: auto;
         min-width: min-content;
+        /* Ensure container respects padding */
+        box-sizing: border-box; 
+        /* Add some padding at the bottom if needed */
+        padding-bottom: 15px; 
     }
 
     /* Show placeholders for ya and wa columns */
     .placeholder {
         display: block;
-        width: 120px;
-        height: 100px;
         visibility: hidden;
+        aspect-ratio: 1.2 / 1;
+        width: clamp(80px, min(calc(15vw - 10px), calc(15vh - 10px)), 120px);
     }
     
     /* Keep other existing styles */
@@ -307,23 +311,10 @@ body.dark-mode .origins {
         padding-bottom: 40px;
     }
 
-    .kana-button, 
-    .placeholder {
-        width: 120px;
-        height: 100px;
-    }
-
-    .kana-pair {
-        font-size: 1.4em;
-    }
-
-    .romaji {
-        font-size: 1.1em;
-    }
-
-    .origins {
-        font-size: 0.85em;
-    }
+    /* Font sizes removed from here - will be handled by container queries */
+    /* .kana-pair { ... } */
+    /* .romaji { ... } */
+    /* .origins { ... } */
 }
 
 /* Add horizontal scrolling indicators */
@@ -363,13 +354,17 @@ body.dark-mode .origins {
 /* --- Card Flip Styles --- */
 .kana-button {
   box-sizing: border-box;
-  width: 130px;
-  height: 110px;
+  width: clamp(100px, min(calc(18vw - 20px), calc(18vh - 20px)), 130px);
+  aspect-ratio: 1.2 / 1;
   background-color: transparent; /* Button itself is a container */
   border: none; /* Remove default button border */
   padding: 0; /* Remove default button padding */
   perspective: 1000px; /* For 3D flip effect */
   cursor: default; /* Default cursor */
+
+  /* --- Define as Container --- */
+  container-type: inline-size; /* Base scaling on width */
+  container-name: kana-tile; /* Optional name */
 }
 
 .kana-card-inner {
@@ -409,13 +404,17 @@ body.dark-mode .origins {
 .kana-card-front {
   background-color: #ffffff;
   color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Better space distribution */
+  padding: 8px 10px; /* Slightly reduce vertical padding */
 }
 
 .kana-card-back {
   background-color: #ffedd5; /* Light blue for back */
   color: #2c3e50;
   transform: rotateY(180deg); /* Position back face */
-  font-size: 1.8em; /* Larger font for Romaji on back */
+  font-size: clamp(1.3em, calc(0.8em + 3vmin), 1.8em);
   font-weight: bold;
   font-family: "Arial", sans-serif;
 }
@@ -423,26 +422,40 @@ body.dark-mode .origins {
 
 /* Content Styles (inside front face) */
 .kana-pair {
-  font-size: 1.6em;
+  /* --- Adjusted font size using Container Query Inline units --- */
+  font-size: clamp(0.8em, 20cqi, 1.5em); /* Reduced max slightly */
   font-weight: bold;
   color: #2c3e50;
-  margin-bottom: 5px;
+  margin-bottom: 2px; /* Reduce bottom margin */
+  line-height: 1.2; /* Tighter line height for kana */
+  flex-shrink: 0; /* Prevent kana pair from shrinking too much */
 }
 
 .romaji {
-  font-size: 1.3em; /* Increased from 1.1em */
-  font-weight: bold; /* Added bold weight */
+  /* --- Adjusted font size using Container Query Inline units --- */
+  font-size: clamp(0.65em, 14cqi, 1.2em); /* Adjusted min, cqi, max */
+  font-weight: bold;
   color: #e74c3c;
-  margin-bottom: 5px;
+  margin: 0; /* Remove vertical margins */
+  padding: 1px 0; /* Reduced padding slightly */
   font-family: "Arial", sans-serif;
-  transition: opacity 0.3s, font-size 0.3s, height 0.3s, margin 0.3s;
+  transition: opacity 0.3s, font-size 0.3s, height 0.3s, margin 0.3s, padding 0.3s;
   opacity: 1;
   height: auto;
   overflow: hidden;
+  flex-shrink: 0; /* Romaji usually shouldn't shrink much either */
 }
+
 .origins {
-  font-size: 0.95em;
+  /* --- Adjusted font size using Container Query Inline units --- */
+  font-size: clamp(0.5em, 12cqi, 0.9em); /* Adjusted min, cqi, max */
   color: #555;
+  transition: opacity 0.3s, font-size 0.3s, height 0.3s, margin 0.3s, padding 0.3s;
+  margin-top: 2px; /* Fixed small margin instead of auto */
+  padding: 0; /* Remove padding to save space */
+  line-height: 1.15; /* Adjusted back slightly */
+  max-height: none; /* Remove height constraint */
+  overflow: hidden; /* Changed from visible to hidden */
 }
 
 /* Hide Romaji via Class */
@@ -462,8 +475,9 @@ body.dark-mode .origins {
 /* Placeholder specifically */
 .placeholder {
   box-sizing: border-box;
-  width: 130px;
-  height: 110px;
+  /* width: clamp(100px, min(calc(18vw - 20px), calc(18vh - 20px)), 130px); */
+  height: calc(clamp(100px, min(calc(18vw - 20px), calc(18vh - 20px)), 130px) / 1.2);
+  aspect-ratio: 1.2 / 1;
   /* Make sure it doesn't interfere */
   background-color: transparent;
   border: none;
@@ -475,15 +489,9 @@ body.dark-mode .origins {
   opacity: 0;
   font-size: 0; /* Shrink font size */
   height: 0; /* Collapse height */
-  margin-bottom: 0; /* Remove margin */
+  margin-top: 0; /* Remove margin when hidden */
+  margin-bottom: 0; /* Remove margin when hidden */
   padding: 0;
-}
-
-/* Add transition for origins - place near existing .origins style */
-.origins {
-  font-size: 0.95em;
-  color: #555;
-  transition: opacity 0.3s, font-size 0.3s, height 0.3s, margin 0.3s; /* Add smooth transition */
 }
 
 .switches-container {
@@ -590,4 +598,18 @@ body.dark-mode .sun-icon {
 body.dark-mode .moon-icon {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Add a media query for very small screens */
+@media (max-height: 600px), (max-width: 400px) {
+  .kana-card-front {
+    padding: 6px 8px; /* Even smaller padding */
+    justify-content: space-between; /* Ensure good distribution */
+  }
+  
+  /* Font sizes removed from here - will be handled by container queries */
+  /* .kana-pair { ... } */
+  /* .romaji { ... } */
+  /* .origins { ... } */
+
 }

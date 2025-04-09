@@ -294,7 +294,7 @@ body.dark-mode .origins {
         gap: 10px;
         max-width: 100%; /* Allow full width */
         padding: 0 20px; /* Horizontal padding */
-        justify-content: flex-start; /* Align grid items to the start */
+        justify-content: flex; /* Align grid items to the start */
         margin: 0 auto;
         overflow-x: auto; /* Enable horizontal scrolling */
         min-width: min-content; /* Ensure grid respects content size */

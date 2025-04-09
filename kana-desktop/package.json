@@ -1,0 +1,19 @@
+{
+  "name": "kana-desktop",
+  "version": "1.0.0",
+  "description": "Japanese Kana Learning Desktop App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "japanese",
+    "kana",
+    "learning"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^25.9.8"
+  }
+}
